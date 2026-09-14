@@ -156,6 +156,10 @@ required_n_2comp(10, 20, 0.6, 0.2, 0.1, 0.1)
 required_n_2comp(m_class = 200, m_noise = 294, acc = 0.7, delta = 0.5, 
                  sigma_within = 1, sigma_between = 0.2)
 
+# In text example:
+required_n_2comp(m_class = 200, m_noise = 294, acc = 0.7, delta = 0.4, 
+                 sigma_within = 1, sigma_between = 0.3)
+
 
 #' Convert a physical noise correlation time (seconds) to the AR(1) lag-1
 #' autocorrelation at a given sampling rate:  rho = exp(-1 / (fs * tau_s)).
