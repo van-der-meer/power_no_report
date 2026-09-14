@@ -43,10 +43,6 @@ install.packages(c("dplyr", "tidyr"))
 
 ## Quick start
 
-> **Before running:** the top of the script contains a hard-coded
-> `setwd("/Users/...")`. **Edit or delete that line** so plots are written where
-> you want them.
-
 ```r
 source("power_analysis_noreport.R")   # runs the full study: validation + plots + tables
 ```
