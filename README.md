@@ -32,8 +32,7 @@ on two distinct *effective* sample counts (see below).
 
 - **R** (≥ 4.0 recommended); base R only for the statistics and plotting.
 - Packages: **`dplyr`**, **`tidyr`** (used for the summary-table pipelines and
-  for assembling p-value data frames). `ggplot2` is *not* required — all plots
-  are base R.
+  for assembling p-value data frames). 
 
 ```r
 install.packages(c("dplyr", "tidyr"))
@@ -41,21 +40,6 @@ install.packages(c("dplyr", "tidyr"))
 
 ---
 
-## Repository contents
-
-| File | Description |
-|------|-------------|
-| `power_analysis_noreport.R` | The complete pipeline: analytic functions, Monte Carlo simulators, validation runs, plots, and summary tables. |
-| `results_section.tex` *(optional)* | LaTeX results section reporting the tables and figures. |
-| `power_analysis_summary.tex` *(optional)* | Standalone LaTeX summary with a worked study-planning example. |
-
-Running the script writes the figure PDFs (`plot_validation.pdf`,
-`plot_between_subject.pdf`, `plot_violations.pdf`, `plot_continuous_mclass.pdf`,
-`plot_pvalue_qq.pdf`, `plot_pvalue_hist.pdf`, `plot_stress_qq.pdf`,
-`plot_stress_hist.pdf`) to the working directory and prints the summary tables to
-the console.
-
----
 
 ## Quick start
 
@@ -157,7 +141,7 @@ invariant alternatives to `rho`/`feat_rho`.
 
 ---
 
-## Planning a study (recipe)
+## Planning a study 
 
 1. **Fix the effect:** standardized per-trial `d = Δ/σ` and between-subject SD
    `τ`. Both are best bracketed rather than trusted to a small pilot.
@@ -172,23 +156,21 @@ invariant alternatives to `rho`/`feat_rho`.
 
 ## Notes and caveats
 
-- **`setwd()` at the top is machine-specific** — remove it before running.
 - The estimator is a group one-sample *t* test on per-subject mean differences;
   at very low effective count with non-Gaussian noise, prefer a robust or
   permutation-based group test.
 - The single-`τ` (AR(1)) noise model is cleanest for eye/M-EEG and only
   approximate for BOLD (the HRF makes the residual spectrum non-AR(1)); for BOLD,
   estimate `m_noise` from the residual integrated autocorrelation time directly.
-- Simulations are stochastic; set a seed for reproducibility (the script does so
-  per section).
 
 ---
 
 ## Citation
 
-If you use this code, please cite the accompanying paper. *(Add citation / DOI
-here.)*
+If you use this code, please cite the accompanying paper:
+
+van der Meer, D., van Gaal, S., Grasman, R., van der Maas, H., & Nunez, M. (2025). The Strengths and Pitfalls of No-report Paradigms in Multistable Perception Research.
 
 ## License
 
-*(Add a license, e.g. MIT, here.)*
+Released under the [MIT License](LICENSE).

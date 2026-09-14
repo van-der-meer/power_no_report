@@ -35,7 +35,7 @@
 ###############################################################################
 
 rm(list = ls())
-setwd("/Users/daniel/Documents/Arbeit/PHD/Research/review/review\ power\ derivation/final")
+setwd("your_working_directory_here")
 
 library(dplyr)   
 library(tidyr)  
