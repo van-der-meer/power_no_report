@@ -1104,7 +1104,7 @@ ns     <- c(10, 20, 30)
 
 
 # --- Plot 1: Analytic (lines) vs simulated (points), main validation ---------
-pdf("plot_validation.pdf", width = 5, height = 5)
+pdf("plots/plot_validation.pdf", width = 5, height = 5)
 v_acc <- seq(0.55, 0.95, 0.001)
 plot(NA, axes = FALSE, xlim = c(0.55, 0.95), ylim = c(0, 1),
      xlab = "Primary analysis accuracy", ylab = "Secondary analysis power")
@@ -1131,7 +1131,7 @@ dev.off()
 
 # --- Plot 2: Between-subject variability -------------------------------------
 sbs <- sort(unique(results_bw$sigma_between))
-pdf("plot_between_subject.pdf", width = 5, height = 5)
+pdf("plots/plot_between_subject.pdf", width = 5, height = 5)
 v_acc <- seq(0.55, 0.95, 0.001)
 plot(NA, axes = FALSE, xlim = c(0.55, 0.95), ylim = c(0, 1),
      xlab = "Primary analysis accuracy", ylab = "Secondary analysis power")
@@ -1170,7 +1170,7 @@ viol_cols_map <- c(power_analytic = viol_cols[1], power_independent = viol_cols[
                    power_correlated = viol_cols[3], power_correlated_far = viol_cols[4],
                    power_unbalanced = viol_cols[5])
 viol_lty <- c(1, 2, 2, 3, 2)
-pdf("plot_violations.pdf", width = 8, height = 6)
+pdf("plots/plot_violations.pdf", width = 8, height = 6)
 plot(NA, axes = FALSE, xlim = c(0.6, 0.9), ylim = c(0, 1),
      xlab = "Classification accuracy", ylab = "Power")
 axis(1); axis(2); abline(h = 0.8, lty = 2)
@@ -1191,7 +1191,7 @@ dev.off()
 # --- Plot 4: Required accuracy for 0.8 power  -----
 Delta_fig4 <- 0.5
 tau_fig4   <- 0.2
-pdf("power.pdf", width = 5, height = 5)
+pdf("plots/power.pdf", width = 5, height = 5)
 plot(NA, axes = FALSE, xlim = c(0.5, 0.9), ylim = c(0, 1),
      ylab = "Secondary analysis power", xlab = "Primary analysis accuracy")
 v_acc <- seq(0.5, 0.99, 0.001)
@@ -1238,7 +1238,7 @@ dev.off()
 # --- Plot 5: Null p-value QQ vs Uniform(0,1) ---------------------------------
 # On the diagonal => uniform => calibrated. One coloured curve per variant.
 qq_cols <- c("black", "red", "blue", "darkgreen")
-pdf("plot_pvalue_qq.pdf", width = 6, height = 5)
+pdf("plots/plot_pvalue_qq.pdf", width = 6, height = 5)
 plot(NA, axes = FALSE, xlim = c(0, 1), ylim = c(0, 1), asp = 1,
      xlab = "Theoretical uniform quantile", ylab = "Empirical p-value quantile")
 axis(1); axis(2)
@@ -1255,7 +1255,7 @@ dev.off()
 
 
 # --- Plot 5b: Null p-value histograms (flat under the null) ------------------
-pdf("plot_pvalue_hist.pdf", width = 10, height = 3.2)
+pdf("plots/plot_pvalue_hist.pdf", width = 10, height = 3.2)
 op <- par(mfrow = c(1, length(pval_null)), mar = c(4, 4, 3, 1))
 for (k in seq_along(pval_null)) {
   p <- pval_null[[k]][is.finite(pval_null[[k]])]
@@ -1277,7 +1277,7 @@ bar_mat <- t(as.matrix(cv_results[, c("power_persample", "power_perperiod",
 rownames(bar_mat) <- c("Sim: per-sample", "Sim: one-per-period",
                        "Analytic: m_class=eff", "Analytic: m_class=#periods")
 colnames(bar_mat) <- paste0(cv_results$scenario, "\n", cv_results$feature)
-pdf("plot_continuous_mclass.pdf", width = 9, height = 6)
+pdf("plots/plot_continuous_mclass.pdf", width = 9, height = 6)
 op <- par(mar = c(7, 4, 3, 1))
 bp <- barplot(bar_mat, beside = TRUE, col = meth_cols, ylim = c(0, 1),
               ylab = "Secondary-analysis power", las = 2, cex.names = 0.7,
@@ -1291,7 +1291,7 @@ dev.off()
 
 # --- Plot 7: Stress-test QQ -- non-Gaussian noise, low vs high count ---------
 stress_cols <- c("black", "red", "blue", "darkgreen")
-pdf("plot_stress_qq.pdf", width = 6, height = 5)
+pdf("plots/plot_stress_qq.pdf", width = 6, height = 5)
 plot(NA, axes = FALSE, xlim = c(0, 1), ylim = c(0, 1), asp = 1,
      xlab = "Theoretical uniform quantile", ylab = "Empirical p-value quantile")
 axis(1); axis(2); abline(0, 1, lty = 2)
@@ -1308,7 +1308,7 @@ dev.off()
 
 
 # --- Plot 7b: Stress-test histograms ----------------------------------------
-pdf("plot_stress_hist.pdf", width = 12, height = 3.2)
+pdf("plots/plot_stress_hist.pdf", width = 12, height = 3.2)
 op <- par(mfrow = c(1, length(pval_stress)), mar = c(4, 4, 3, 1))
 for (k in seq_along(pval_stress)) {
   p <- pval_stress[[k]][is.finite(pval_stress[[k]])]
