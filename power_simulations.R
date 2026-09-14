@@ -127,6 +127,16 @@ power_analytic_2comp <- function(n, m_class, m_noise, acc, delta, sigma_within,
 
 power_analytic_2comp(10, 10, 20, 0.7, 0.2, 0.1, 0.1)
 
+# In text example:
+# for n = 6
+power_analytic_2comp(n = 6, m_class = 200, m_noise = 294, acc = 0.7, delta = 0.5, 
+                      sigma_within = 1, sigma_between = 0.2)
+
+# for n = 7
+power_analytic_2comp(n = 7, m_class = 200, m_noise = 294, acc = 0.7, delta = 0.5, 
+                     sigma_within = 1, sigma_between = 0.2)
+
+
 #' Smallest number of subjects reaching `target_power` for given counts.
 #' Returns NA if unreachable within n_max (e.g. a tau-limited design).
 required_n_2comp <- function(m_class, m_noise, acc, delta, sigma_within,
@@ -141,6 +151,11 @@ required_n_2comp <- function(m_class, m_noise, acc, delta, sigma_within,
 }
 
 required_n_2comp(10, 20, 0.6, 0.2, 0.1, 0.1)
+
+# In text example:
+required_n_2comp(m_class = 200, m_noise = 294, acc = 0.7, delta = 0.5, 
+                 sigma_within = 1, sigma_between = 0.2)
+
 
 #' Convert a physical noise correlation time (seconds) to the AR(1) lag-1
 #' autocorrelation at a given sampling rate:  rho = exp(-1 / (fs * tau_s)).
